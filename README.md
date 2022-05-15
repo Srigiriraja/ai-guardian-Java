@@ -145,6 +145,7 @@ Run the generated .jar file in the target folder
 ```shell
 java -jar target/bmi-1.0.jar
 ```
+<<<<<<< HEAD
 
 ## Docker
 Build the Docker image
@@ -167,3 +168,5 @@ docker tag tericcabrel/bmi:v1 tericcabrel/bmi:v1
 docker push tericcabrel/bmi:v1
 ```
 >>>>>>> a2977b1 (feat: build the docker image)
+=======
+>>>>>>> d894616 (feat: delete  dockerfile)
