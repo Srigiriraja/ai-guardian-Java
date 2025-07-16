@@ -1,0 +1,14 @@
+# C:/T19/JavaProject/mvn_sample_app/k8s/service.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-guardian-service
+  namespace: default
+spec:
+  selector:
+    app: ai-guardian
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
