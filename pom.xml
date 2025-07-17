@@ -15,6 +15,10 @@
     <description>bmi</description>
     <properties>
         <java.version>11</java.version>
+        <!-- SonarCloud Configuration -->
+    <sonar.projectKey>simpleram_ai-guardian</sonar.projectKey>
+    <sonar.organization>simpleram</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
         <dependency>
