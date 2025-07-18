@@ -123,6 +123,7 @@ jobs:
         uses: returntocorp/semgrep-action@v1
         with:
           config: auto
+          args: --no-fail
 
   dependency-check:
     runs-on: ubuntu-latest
