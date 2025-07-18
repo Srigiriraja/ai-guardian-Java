@@ -116,12 +116,17 @@ jobs:
     needs: sonar-scan
     steps:
       - uses: actions/checkout@v3
-
-      - name: Run Semgrep manually 
+      - name: Install Semgrep 
+        run: |
+         docker pull returntocorp/semgrep:latest
+         docker run --rm returntocorp/semgrep:latest semgrep --version
+      - name: Run Semgrep
         uses: returntocorp/semgrep-action@v1
         with:
           config: auto
-
+          # Explicitly use the latest image
+          image: returntocorp/semgrep:latest
+          
   dependency-check:
     runs-on: ubuntu-latest
     needs: semgrep
