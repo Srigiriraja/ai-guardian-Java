@@ -13,8 +13,11 @@ spec:
     metadata:
       labels:
         app: ai-guardian
-    spec:
-      containers:
+  spec:
+    securityContext:
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+    containers:
       - name: ai-guardian
         image: srigiriraja/ai-guardian:latest
         ports:

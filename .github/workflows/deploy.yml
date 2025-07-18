@@ -167,7 +167,7 @@ jobs:
   image-build:
     runs-on: ubuntu-latest
     env:
-      DOCKER_REPO: shaikbyte/cicd-java
+      DOCKER_REPO: gyanavel/dockerlabs
       DOCKER_TAG: latest
     needs: malware-scan
     steps:
@@ -179,7 +179,7 @@ jobs:
           path: target 
       - name: Build Docker image
         run: |
-          docker build -t shaikbyte/cicd-java:latest .
+          docker build -t gyanavel/dockerlabs .
           docker images
       - name: Install Trivy
         run: |
