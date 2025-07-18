@@ -13,10 +13,10 @@ spec:
     metadata:
       labels:
         app: ai-guardian
-  spec:
+  specifications:
     securityContext:
         runAsNonRoot: true
-        allowPrivilegeEscalation: false
+        'allowPrivilegeEscalation' : false
     containers:
       - name: ai-guardian
         image: srigiriraja/ai-guardian:latest
