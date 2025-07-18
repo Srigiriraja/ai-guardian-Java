@@ -116,6 +116,10 @@ jobs:
     needs: sonar-scan
     steps:
       - uses: actions/checkout@v3
+      - name: Install Semgrep
+        run: |
+          sudo snap install semgrep --classic
+      - uses: actions/checkout@v3
       - name: Run Semgrep
         uses: returntocorp/semgrep-action@v1
         with:
@@ -160,8 +164,6 @@ jobs:
           name: malware-scan-results
           path: malware-scan-results.txt
 
-
-
   image-build:
     runs-on: ubuntu-latest
     env:
@@ -170,11 +172,11 @@ jobs:
     needs: malware-scan
     steps:
       - uses: actions/checkout@v3
-      - name: Download WAR Artifact
-        uses: actions/download-artifact@v4
+      - name: Upload WAR Artifact
+        uses: actions/upload-artifact@v4
         with:
           name:  java-app-war
-          path: target 
+          path: target/bmi-1.0.war
       - name: Build Docker image
         run: |
           docker build -t gyanavel/dockerlabs .
