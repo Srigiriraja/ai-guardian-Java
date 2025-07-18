@@ -116,14 +116,12 @@ jobs:
     needs: sonar-scan
     steps:
       - uses: actions/checkout@v3
-      - name: Install Semgrep
-        run: |
-         pip install semgrep==1.85.0
-      - name: Run Semgrep
+
+      - name: Run Semgrep manually 
         uses: returntocorp/semgrep-action@v1
         with:
           config: auto
-          args: --no-fail
+          no_fail : true 
 
   dependency-check:
     runs-on: ubuntu-latest
