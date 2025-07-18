@@ -68,10 +68,7 @@ jobs:
         with:
           name: jacoco-report
           path: target/site/jacoco/
-
-
-
-
+          
   sonar-scan:
     name: sonar-scan
     runs-on: ubuntu-latest
