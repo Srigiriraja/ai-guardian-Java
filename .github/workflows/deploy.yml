@@ -120,7 +120,8 @@ jobs:
         uses: returntocorp/semgrep-action@v1
         with:
           config: auto
-          args: --no-fail   # <-- Optional: to avoid blocking the pipeline on findings
+          additional_args: --no-fail
+
   dependency-check:
     runs-on: ubuntu-latest
     needs: semgrep
