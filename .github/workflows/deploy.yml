@@ -216,7 +216,7 @@ jobs:
           ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
         run: |
          
-          argocd login $ARGOCD_SERVER --username $ARGOCD_USERNAME --password $ARGOCD_PASSWORD --insecure
+          argocd login $ARGOCD_SERVER --username $ARGOCD_USERNAME --password $ARGOCD_PASSWORD 
           argocd app sync app-java-1
           argocd app wait app-java-1 --health --operation
   dast:
