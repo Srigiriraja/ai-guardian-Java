@@ -13,19 +13,19 @@ spec:
     metadata:
       labels:
         app: ai-guardian
-    spec :    
-containers:
-  - name: ai-guardian
-    image: srigiriraja/ai-guardian:latest
-    ports:
-      - containerPort: 8001
-    securityContext:               # ✅ Must be inside the container
-      allowPrivilegeEscalation: false
-      runAsNonRoot: true
-    resources:
-      limits:
-        cpu: "500m"
-        memory: "512Mi"
-      requests:
-        cpu: "200m"
-        memory: "256Mi"
+    spec:
+      containers:
+      - name: ai-guardian
+        image: srigiriraja/ai-guardian:latest
+        ports:
+        - containerPort: 8001
+        securityContext:               # ✅ Inside the container
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
