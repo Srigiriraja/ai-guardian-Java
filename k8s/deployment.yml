@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: ai-guardian
+    spec :    
 containers:
   - name: ai-guardian
     image: srigiriraja/ai-guardian:latest
