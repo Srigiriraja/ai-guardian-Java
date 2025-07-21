@@ -13,17 +13,17 @@ spec:
     metadata:
       labels:
         app: ai-guardian
-    spec:
+    spec: # <--- This is the correct level for 'tolerations'
       containers:
       - name: ai-guardian
         image: srigiriraja/ai-guardian:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-        securityContext:               # ✅ Inside the container
+        securityContext:
           allowPrivilegeEscalation: false
           runAsNonRoot: true
-          runAsUser: 1000   # (non-root user id)
+          runAsUser: 1000
         resources:
           limits:
             cpu: "500m"
@@ -31,3 +31,7 @@ spec:
           requests:
             cpu: "200m"
             memory: "256Mi"
+      tolerations: # <--- Add tolerations here, directly under 'spec'
+      - key: "virtual-kubelet.io/provider"
+        operator: "Exists"
+        effect: "NoSchedule"
