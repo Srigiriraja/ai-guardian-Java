@@ -29,8 +29,8 @@ spec:
             cpu: "500m"
             memory: "512Mi"
           requests:
-            cpu: "100m"
-            memory: "128Mi"
+            cpu: "50m"
+            memory: "64Mi"
       tolerations: # <--- Add tolerations here, directly under 'spec'
       - key: "virtual-kubelet.io/provider"
         operator: "Exists"
