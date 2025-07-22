@@ -16,7 +16,7 @@ spec:
     spec: # <--- This is the correct level for 'tolerations'
       containers:
       - name: ai-guardian
-        image: srigiriraja/ai-guardian:latest
+        image: gyanavel/ai-guardian:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
