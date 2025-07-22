@@ -26,11 +26,11 @@ spec:
           runAsUser: 1000
         resources:
           limits:
-            cpu: "500m"
-            memory: "512Mi"
+            cpu: "250m"
+            memory: "256i"
           requests:
-            cpu: "200m"
-            memory: "256Mi"
+            cpu: "100m"
+            memory: "128Mi"
       tolerations: # <--- Add tolerations here, directly under 'spec'
       - key: "virtual-kubelet.io/provider"
         operator: "Exists"
