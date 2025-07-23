@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ai-guardian-app
+  name: ai-guardian
   namespace: default
 spec:
   replicas: 2
