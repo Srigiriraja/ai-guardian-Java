@@ -2,8 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ai-guardian-app
-  namespace: default
+  name: ai-guardian
+  namespace: argocd
 spec:
   replicas: 2
   selector:
