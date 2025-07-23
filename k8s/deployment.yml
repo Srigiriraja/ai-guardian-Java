@@ -1,0 +1,43 @@
+# C:/T19/JavaProject/mvn_sample_app/k8s/deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-guardian
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ai-guardian
+  template:
+    metadata:
+      labels:
+        app: ai-guardian
+    spec: # <--- This is the correct level for 'tolerations'
+      containers:
+      - name: ai-guardian
+        image: gyanavel/ai-guardian:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          runAsUser: 1000
+        resources:
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+      tolerations: # <--- Add tolerations here, directly under 'spec'
+      - key: "virtual-kubelet.io/provider"
+        operator: "Exists"
+        effect: "NoSchedule"
+        # Ensure this toleration is also present for NotReady/unreachable nodes
+      - key: "node.kubernetes.io/unreachable"
+        operator: "Exists"
+        effect: "NoExecute"
+        tolerationSeconds: 300 # <-- Allows pod to stay for 5 mins if node becomes 
+      
